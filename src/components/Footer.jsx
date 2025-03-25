@@ -25,7 +25,7 @@ const Footer = () => {
                     <a href="https://instagram.com">
                         <img src="images/in.png" alt=""/>
                     </a>
-                    <p class="text-dark">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur adipisci quo error reiciendis ex iste perferendis sapiente quisquam vero natus, ratione eveniet mollitia placeat aspernatur, quaerat minus aliquid, id impedit.</p>
+                    <p class="text-dark">stay Connected so you get your odered products safely and on time</p>
                 </div>
             </section>
              <footer class="bg-dark text-white text-center p-2">

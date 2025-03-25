@@ -9,6 +9,7 @@ import SingleProduct from './components/SingleProduct';
 import Footer from './components/Footer';
 import "bootstrap/dist//css/bootstrap.min.css"
 import "bootstrap/dist//js/bootstrap.min.js"
+import  Carousel  from './components/Carousel';
 function App() {
   return (
     <Router>
@@ -24,8 +25,10 @@ function App() {
         <Route path='/' element={<GetProduct/>}/>
         <Route path="/singleproduct" element={<SingleProduct/>}/>
         <Route path="/footer" element={<Footer/>}/>
+        <Route path='/carousel' element={<Carousel/>}/>
       </Routes>
     </div>
+    
     </Router>
   );
 }

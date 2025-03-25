@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate,Link, } from "react-router-dom";
 import Footer from "./Footer";
+import Carousel from "./Carousel";
 const GetProduct = () => {
     let [products,setproducts]=useState([]);
     let [error,seterror]=useState("");
@@ -48,9 +49,9 @@ const GetProduct = () => {
             <Link className="btn btn-dark mx-2" to="/signin">SignIn</Link>
             <Link className="btn btn-dark mx-2" to="/signup">SignUp</Link>
             <Link className="btn btn-dark mx-2" to="/addproduct">AddProduct</Link>
-            <Link className="btn btn-dark mx-2" to="/carosel">Carosel</Link>
+            <Link className="btn btn-dark mx-2" to="/singleproduct">SingleProduct</Link>
             </nav>
-            {/* {crousel} */}
+            <Carousel/>
             {/* {content} */}
 
             <div className="justify-content-center m-3">
@@ -60,23 +61,18 @@ const GetProduct = () => {
             </div>
 
             {filteredproducts.map((product)=>(
-           <div className="col-md-3 justify-content-center mb-4">
-           <div className="card shadow">
-               <img src={image_url+product.product_photo} className="product_img" alt="" />
-               <div className="card-body">
-                   <h5 className="mt-2">{product.product_name}</h5>
-                   {product.product_photo} 
-                   <p><div className="text-muted">{product.product_desc.slice(0,10)}</div></p>
-                   <b className="text-warning">{product.product_cost} Ksh</b>
-
-                   <button className="btn btn-primary w-100" onClick={()=> navigate("",{state:{product}}) }>view products</button>
-               </div>
-           </div>
-       </div>
+            <div className="col-md-3 justify-content-center mb-4">
+                <div className="card shadow">
+                    <img src={image_url+product.product_photo} className="product_img" alt="" />
+                    <div className="card-body">
+                        <h5 className="mt-2">{product.product_name}</h5>
+                        <p className="text-muted">{product.product_desc.slice(0,10)}</p>
+                        <b className="text-warning">{product.product_cost} Ksh</b>
+                        <button className="btn btn-primary w-100" onClick={()=> navigate("",{state:{product}}) }>view products</button>
+                    </div>
+                </div>
+            </div>
             ))}
- 
-
-
             {/* {footer} */}
             <section class="row bg-success p-4">
                 <div class="col-md-4  text-white ">
