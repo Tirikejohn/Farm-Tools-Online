@@ -1,42 +1,40 @@
-import { Link } from "react-router-dom";
-
 const Carousel = () => {
     return ( 
         <div>
-            <section class="row">
-                <div class="col-md-12">
-                    <div class="carousel slide" id="mycarousel" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="images/slide1.jpeg" alt="" class="d-block w-100" height="550px"/>
+            <section className="row">
+                <div className="col-md-12">
+                    <div id="mycarousel" className="carousel slide" data-bs-ride="carousel">
+                        <div className="carousel-inner">
+                            <div className="carousel-item active">
+                                <img src="images/1.webp" alt="" className="d-block w-100" height="250px" />
+                            </div>
+                            <div className="carousel-item">
+                                <img src="images/2.webp" alt="" className="d-block w-100" height="250px" />
+                            </div>
+                            <div className="carousel-item">
+                                <img src="images/3.jpg" alt="" className="d-block w-100" height="250px" />
+                            </div>
                         </div>
 
-                        <div class="carousel-item">
-                        <img src="images/slide2.jpeg" alt="" class="d-block w-100" height="550px" />
-                        </div>
+                        <a className="carousel-control-prev" href="#mycarousel" role="button" data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
+                        </a>
+                        <a className="carousel-control-next" href="#mycarousel" role="button" data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
+                        </a>
 
-                        <div class="carousel-item">
-                        <img src="images/slide3.jpeg" alt="" class="d-block w-100" height="550px" />
-                        </div>
-                    </div>
-
-                    <Link to="#mycarousel" class="carousel-control-prev" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </Link>
-                    <Link to="#mycarousel" class="carousel-control-next" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </Link>
-
-                    <ol class="carousel-indicators">
-                        <li data-bs-slide-to="0" class="active"></li>
-                        <li data-bs-slide-to="1"></li>
-                        <li data-bs-slide-to="2"></li>
-                    </ol>
+                        <ol className="carousel-indicators">
+                            <li data-bs-target="#mycarousel" data-bs-slide-to="0" className="active"></li>
+                            <li data-bs-target="#mycarousel" data-bs-slide-to="1"></li>
+                            <li data-bs-target="#mycarousel" data-bs-slide-to="2"></li>
+                        </ol>
                     </div>
                 </div>
             </section>
         </div>
-     );
+    );
 }
  
 export default Carousel;

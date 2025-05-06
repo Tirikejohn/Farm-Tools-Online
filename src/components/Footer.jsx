@@ -5,8 +5,15 @@ const Footer = () => {
         <section class="row bg-success p-4">
                 <div class="col-md-4  text-white ">
                     <h4 class="text-center">About us</h4>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad in minus voluptatibus sit sed magnam amet ipsum, consequatur inventore architecto?
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat, soluta.</p>
+                    <p>
+    We are a group of passionate individuals dedicated to improving farming through accessible and efficient tools. Our mission is to support farmers by providing information, ideas, and solutions that make their work easier, faster, and more productive.
+
+This project focuses on exploring traditional and modern farm tools, understanding how they work, and promoting innovations that help boost agricultural output. Whether it's plows, sickles, tractors, or smart irrigation systems, we aim to highlight the importance of every tool in shaping a better future for farming.
+
+Thank you for visiting, and we hope our project inspires more interest and innovation in agriculture!
+
+
+</p>
 
                 </div>
                 <div class="col-md-4">
