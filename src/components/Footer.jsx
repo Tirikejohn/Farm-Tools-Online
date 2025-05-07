@@ -1,45 +1,55 @@
+import React from 'react';
+
 const Footer = () => {
-    return ( 
-       
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Here you can handle the form submission logic (e.g., send the message).
+        console.log("Message sent!");
+    };
+
+    return (
         <div>
-        <section class="row bg-success p-4">
-                <div class="col-md-4  text-white ">
-                    <h4 class="text-center">About us</h4>
+            <section className="row bg-success p-4">
+                <div className="col-md-4 text-white">
+                    <h4 className="text-center">About us</h4>
                     <p>
-    We are a group of passionate individuals dedicated to improving farming through accessible and efficient tools. Our mission is to support farmers by providing information, ideas, and solutions that make their work easier, faster, and more productive.
-
-This project focuses on exploring traditional and modern farm tools, understanding how they work, and promoting innovations that help boost agricultural output. Whether it's plows, sickles, tractors, or smart irrigation systems, we aim to highlight the importance of every tool in shaping a better future for farming.
-
-Thank you for visiting, and we hope our project inspires more interest and innovation in agriculture!
-
-
-</p>
-
+                        We are a group of passionate individuals dedicated to improving farming through accessible and efficient tools. Our mission is to support farmers by providing information, ideas, and solutions that make their work easier, faster, and more productive.
+                        <br />
+                        This project focuses on exploring traditional and modern farm tools, understanding how they work, and promoting innovations that help boost agricultural output. Whether it's plows, sickles, tractors, or smart irrigation systems, we aim to highlight the importance of every tool in shaping a better future for farming.
+                        <br />
+                        Thank you for visiting, and we hope our project inspires more interest and innovation in agriculture!
+                    </p>
                 </div>
-                <div class="col-md-4">
-                    <h4 class="text-center text-white">Contact us</h4>
-                    <form action="">
-                        <input type="email"  place holder="enter your email" class="form-control" /> <br/><br/>
-                        <textarea name="" id="" class="form-control" placeholder="Leave a comment" rows="7"></textarea><br/>
-                       <input type="submit" class="btn btn-outline-danger" value="send message"/><br/>
+                <div className="col-md-4">
+                    <h4 className="text-center text-white">Contact us</h4>
+                    <form onSubmit={handleSubmit}>
+                        <input type="email" placeholder="Enter your email" className="form-control" required />
+                        <br /><br />
+                        <textarea name="message" id="message" className="form-control" placeholder="Leave a comment" rows="7" required></textarea>
+                        <br />
+                        <input type="submit" className="btn btn-outline-danger" value="Send Message" />
+                        <br />
                     </form>
                 </div>
-                <div class="col-md-4">
-                    <h4 class="text-center">Stay Connected</h4>
-                    <a href="https://facebook.com">
-                        <img src="images/fb.png" alt=""/>
+                <div className="col-md-4">
+                    <h4 className="text-center text-white">Stay Connected</h4>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <img src="images/fb.png" alt="Facebook" />
                     </a>
-                    <a href="https://instagram.com">
-                        <img src="images/in.png" alt=""/>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                     </a>
-                    <p class="text-dark">stay Connected so you get your odered products safely and on time</p>
+
+                    <p className="text-dark">
+                        Stay connected so you get your ordered products safely and on time.
+                    </p>
                 </div>
             </section>
-             <footer class="bg-dark text-white text-center p-2">
-                <h5>Developed by johntirike &copy;2025.All Rights Reserved</h5>
-             </footer>
-    </div>
-     );
+
+            <footer className="bg-dark text-white text-center p-2">
+                <h5>Developed by johntirike &copy;2025. All Rights Reserved</h5>
+            </footer>
+        </div>
+    );
 }
- 
+
 export default Footer;

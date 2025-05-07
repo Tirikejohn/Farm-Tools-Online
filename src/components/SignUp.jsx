@@ -3,33 +3,31 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-    // State variables
     let [username, setUsername] = useState("");
     let [email, setEmail] = useState("");
     let [phone, setPhone] = useState("");
     let [password, setPassword] = useState("");
-    let [loading, setLoading] = useState("");
+    let [loading, setLoading] = useState(false);
     let [success, setSuccess] = useState("");
     let [error, setError] = useState("");
     
     const navigate = useNavigate();
 
-    // Form submission handler
     const submitForm = async (e) => {
         e.preventDefault();
 
-        // Input validation
-        if (!email.includes('@')) {
+        if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
             setError("Please enter a valid email address");
             return;
         }
-        if (phone.length < 10) {
+
+        if (phone && phone.length < 10) {
             setError("Please enter a valid phone number");
             return;
         }
 
         try {
-            setLoading("Please wait while we submit your data...");
+            setLoading(true);
             const data = new FormData();
             data.append("username", username);
             data.append("email", email);
@@ -38,22 +36,24 @@ const SignUp = () => {
 
             const response = await axios.post("https://ndege25.pythonanywhere.com/api/signup", data);
 
-            setLoading("");
+            setLoading(false);
             if (response.data.success) {
                 setSuccess(response.data.success);
+                setTimeout(() => setSuccess(''), 3000); // Clear success message after 3 seconds
                 setUsername("");
                 setEmail("");
                 setPhone("");
                 setPassword("");
                 setTimeout(() => {
-                    navigate("/signin"); // Redirect to the sign-in page after successful signup
-                }, 2000); // 2 seconds delay for the success message
+                    navigate("/signin");
+                }, 2000); // Redirect after 2 seconds
             } else {
-                setError("Signup failed: " + response.data.message || "Unknown error");
+                setError("Signup failed: " + (response.data.message || "Unknown error"));
+                setTimeout(() => setError(''), 3000); // Clear error message after 3 seconds
             }
         } catch (error) {
-            setLoading("");
-            setError("Something went wrong: " + error.message);
+            setLoading(false);
+            setError("Something went wrong: " + (error.response ? error.response.data.message : error.message));
         }
     };
 
@@ -62,7 +62,10 @@ const SignUp = () => {
             <div className="col-md-6 card shadow p-4">
                 <h2>SignUp</h2>
 
-                <b className="text-warning">{loading}</b>
+                {loading && <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>}
+
                 <b className="text-success">{success}</b>
                 <b className="text-danger">{error}</b>
 
@@ -89,7 +92,6 @@ const SignUp = () => {
                         type="tel"
                         className="form-control"
                         placeholder="Enter phone"
-                        required
                         onChange={(e) => setPhone(e.target.value)}
                         value={phone}
                     /><br />
@@ -105,7 +107,7 @@ const SignUp = () => {
 
                     <button
                         className="btn btn-primary"
-                        disabled={loading || !username || !email || !phone || !password}
+                        disabled={loading || !username || !email || !password}
                     >
                         SignUp
                     </button>
@@ -116,4 +118,3 @@ const SignUp = () => {
 }
 
 export default SignUp;
-
